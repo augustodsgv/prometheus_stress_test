@@ -53,7 +53,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         """
         if self.path == "/metrics":
             self.send_response(200)
-            self.send_header("Content-type", "text/html")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             next_file = stress_test_metrics(METRICS_COUNT, METRICS_NAME)
             self.wfile.write(next_file.encode('utf-8'))
