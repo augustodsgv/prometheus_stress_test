@@ -197,15 +197,20 @@ def main():
     LABEL_COUNT = int(os.environ.get('LABEL_COUNT', 0))
     LABEL_VALUES_COUNT = int(os.environ.get('LABEL_VALUES_COUNT', 1))
 
+    print(f"Number of distinct time series: {METRIC_COUNT * LABEL_VALUES_COUNT ** LABEL_COUNT}")
+    print(f"Number of different metrics: {METRIC_COUNT}")
+    print(f"Number of different labels: {LABEL_COUNT}")
+    print(f"Number of different labels values: {LABEL_VALUES_COUNT}")
+
     CUSTOM_LABELS = {}
     for key, value in os.environ.items():
         if key.startswith('SE_LABEL'):
             label_key = key.removeprefix('SE_LABEL_').lower()
             CUSTOM_LABELS[label_key] = value
+    print(f"Custom labels: {CUSTOM_LABELS}")
 
     PORT = int(os.environ.get('PORT', 8000))
     REFRESH_INTERVAL = int(os.environ.get('REFRESH_INTERVAL', 10))
-
     # Setting a daemon thread to update the payload
     update_thread = threading.Thread(target=update_payload)
     update_thread.daemon = True
