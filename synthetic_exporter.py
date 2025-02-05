@@ -2,10 +2,19 @@ import http.server
 import random
 import socketserver
 import os
+import threading
+import time
 METRICS_COUNT = int(os.environ.get('METRICS_COUNT', 100_000))
 METRICS_NAME = os.environ.get('METRICS_NAME', 'stress_test')
 PORT = int(os.environ.get('PORT', 8000))
+REFRESH_INTERVAL = int(os.environ.get('REFRESH_INTERVAL', 10))
 LABELS = {}
+for key, value in os.environ.items():
+    if key.startswith('SE_LABEL'):
+        label_key = key.removeprefix('SE_LABEL_').lower()
+        LABELS[label_key] = value
+
+PAYLOAD = ""
 
 def gen_metric(
         metric_name: str,
@@ -33,6 +42,7 @@ def gen_metric(
     return "".join(metric)
 
 
+
 def stress_test_metrics(
         metrics_count: int,
         metric_name: str
@@ -43,8 +53,17 @@ def stress_test_metrics(
     metric_payload = []
     for i in range(metrics_count):
         metric_value = random.uniform(0, 100)
-        metric_payload.append(gen_metric(f"{metric_name}_{i}", str(metric_value), "gauge", "Stress test metric", {"instance": i}))
+        metric_payload.append(gen_metric(f"{metric_name}_{i}", str(metric_value), "gauge", "Stress test metric", LABELS))
     return "".join(metric_payload)
+
+def update_payload():
+    """
+    Thread to update the PAYLOAD every 10 seconds
+    """
+    global PAYLOAD
+    while True:
+        PAYLOAD = stress_test_metrics(METRICS_COUNT, METRICS_NAME)
+        time.sleep(REFRESH_INTERVAL)
 
 class Handler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
@@ -55,13 +74,16 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            next_file = stress_test_metrics(METRICS_COUNT, METRICS_NAME)
-            self.wfile.write(next_file.encode('utf-8'))
+            self.wfile.write(PAYLOAD.encode('utf-8'))
         else:
             self.send_response(404)
             self.end_headers()
 
 def main():
+    # Setting a daemon thread to update the payload
+    update_thread = threading.Thread(target=update_payload)
+    update_thread.daemon = True
+    update_thread.start()
 
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
         print(f"Serving on port {PORT}")
