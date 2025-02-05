@@ -1,16 +1,17 @@
 groups:
   - name: stress_test
     rules:
-      - alert: HighRequestRate0
-        expr: sum(rate({__name__=~ "stress_test_.*"}[5s])) > 0
+      - alert: high_metric_value_25
+        expr: avg(stress_test_0) > 25
         for: 5s
         labels:
           severity: info
         annotations:
           summary: High request rate
           description: High request rate detected
-      - alert: HighRequestRate25
-        expr: sum(rate({__name__=~ "stress_test_.*"}[5s])) > 25
+
+      - alert: high_metric_value_50
+        expr: avg(stress_test_0) > 50
         for: 5s
         labels:
           severity: warning
@@ -18,29 +19,20 @@ groups:
           summary: High request rate
           description: High request rate detected
 
-      - alert: HighRequestRate50
-        expr: sum(rate({__name__=~ "stress_test_.*"}[5s])) > 50
+      - alert: high_metric_value_75
+        expr: avg(stress_test_0) > 75
         for: 5s
         labels:
-          severity: warning
+          severity: high 
         annotations:
           summary: High request rate
           description: High request rate detected
 
-      - alert: HighRequestRate75
-        expr: sum(rate({__name__=~ "stress_test_.*"}[5s])) > 75
+      - alert: high_metric_value_100
+        expr: avg(stress_test_0) > 100
         for: 5s
         labels:
-          severity: high
-        annotations:
-          summary: High request rate
-          description: High request rate detected
-
-      - alert: HighRequestRate100
-        expr: sum(rate({__name__=~ "stress_test_.*"}[5s])) == 100
-        for: 5s
-        labels:
-          severity: high
+          severity: critical
         annotations:
           summary: High request rate
           description: High request rate detected

@@ -30,7 +30,7 @@ def gen_stress_test_metrics(
     """
     Generates metric_count metrics with random values
     """
-    metric_name = "stress_test"
+    metric_name = METRICS_BASE_NAME
     metric_payload = []
     label_comb = gen_labels(labels_count, label_values_count)
 

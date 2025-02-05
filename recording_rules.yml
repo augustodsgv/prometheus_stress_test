@@ -1,0 +1,15 @@
+# groups:
+# - name: stress_test_rules
+#   rules:
+#   - record: stress_test_sum
+#     expr: sum({__name__=~"stress_test_.*"})
+#   - record: stress_test_avg
+#     expr: avg({__name__=~"stress_test_.*"})
+#   - record: stress_test_max
+#     expr: max({__name__=~"stress_test_.*"})
+#   - record: stress_test_min
+#     expr: min({__name__=~"stress_test_.*"})
+#   - record: stress_test_count
+#     expr: count({__name__=~"stress_test_.*"})
+#   - record: stress_test_topk
+#     expr: topk(5, {__name__=~"stress_test_.*"})

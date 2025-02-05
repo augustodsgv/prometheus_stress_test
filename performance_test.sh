@@ -1,27 +1,37 @@
 #!/bin/bash
-TIME_SERIES_COUNT=100_000
-REPLICA_COUNT=10
-REPLICA_PORT=8000
+REPLICA_COUNT=100
+
 IMAGE=synthetic-exporter
 DOCKER_NETWORK=stress_test
-EXPORTER_PORT=8000
 EXPORTER_NAME=synthetic-exporter
+TIME_SERIES_COUNT=100_000
 
+EXPORTER_PORT=8000
+METRICS_BASE_NAME=synthetic_metric
+METRIC_COUNT=1000
+LABEL_COUNT=2
+LABEL_VALUES_COUNT=20
+REFRESH_INTERVAL=10
 
 build_exporters(){
+    echo "Building $REPLICA_COUNT exporter container..."
     for i in $(seq 1 $REPLICA_COUNT); do
         docker run -d --name $EXPORTER_NAME-$i \
             --network=$DOCKER_NETWORK \
             -e PORT=$EXPORTER_PORT \
-            -e METRIC_NAME="synthetic_metric" \
-            -e METRICS_COUNT=$TIME_SERIES_COUNT \
+            -e METRICS_BASE_NAME=$METRICS_BASE_NAME \
+            -e METRIC_COUNT=$METRIC_COUNT \
+            -e LABEL_COUNT=$LABEL_COUNT \
+            -e LABEL_VALUES_COUNT=$LABEL_VALUES_COUNT \
+            -e REFRESH_INTERVAL=$REFRESH_INTERVAL \
+            -e SE_LABEL_FOO="foo" \
+            -e SE_LABEL_BAR="bar" \
             -e SE_LABEL_INDEX=$i \
             $IMAGE
-            # -p $((30000 + EXPORTER_PORT + i - 1)):$EXPORTER_PORT \
     done
 }
 
-build_prometheus_file(){
+build_prometheus_yml(){
   echo "Generating prometheus.yml file"
 
     cat <<EOF > prometheus.yml
@@ -37,9 +47,60 @@ scrape_configs:
     scrape_timeout: 20s
     static_configs:
 EOF
+#   - "recording_rules.yml"
 
     for i in $(seq 1 $REPLICA_COUNT); do
         echo "      - targets: ['$EXPORTER_NAME-$i:$EXPORTER_PORT']" >> prometheus.yml
+    done
+}
+
+build_alert_rules_yml(){
+  echo "Generating alert_rules.yml file"
+
+    cat <<EOF > alert_rules.yml
+groups:
+  - name: stress_test
+    rules:
+EOF
+
+    for i in $(seq 1 $REPLICA_COUNT); do
+        cat <<EOF >> alert_rules.yml
+      - alert: high_metric_value_25_$i
+        expr: avg(${METRICS_BASE_NAME}_$i) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_$i
+        expr: avg(${METRICS_BASE_NAME}$i) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_$i
+        expr: avg(${METRICS_BASE_NAME}_$i) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_$i
+        expr: avg(${METRICS_BASE_NAME}_$i) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+EOF
     done
 }
 
@@ -55,6 +116,7 @@ run_prometheus(){
         -p 9090:9090 \
         -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
         -v $(pwd)/alert_rules.yml:/etc/prometheus/alert_rules.yml \
+        -v $(pwd)/recording_rules.yml:/etc/prometheus/recording_rules.yml \
         prom/prometheus
 }
 
@@ -63,33 +125,42 @@ get_prometheus_load(){
 }
 
 stop_prometheus(){
+    echo "Stoping prometheus container"
     docker stop prometheus_stress_test
     docker rm prometheus_stress_test
 }
 
 stop_exporters(){
+    echo "Stoping exporter container..."
     for i in $(seq 1 $REPLICA_COUNT); do
         docker rm -f synthetic-exporter-$i
     done
 }
 
 
-replica_counts=(100 1000)
-time_series_count=(1000 10000 100000)
+# replica_counts=(100 1000)
+replica_counts=(10)
+# time_series_count=(1000 10000 100000)
+time_series_count=(1000)
 setup_docker
 
-for time_series in "${time_series_count[@]}"; do
-    echo "Running test with $time_series time series"
-    for replica in "${replica_counts[@]}"; do
-        echo "Running test with $replica replicas and $time_series time series"
-        TIME_SERIES_COUNT=$time_series
-        REPLICA_COUNT=$replica
-        build_exporters
-        build_prometheus_file
-        run_prometheus
-        sleep 
-        get_prometheus_load
-        stop_prometheus
-        stop_exporters
-    done
+# for time_series in "${time_series_count[@]}"; do
+#     echo "Running test with $time_series time series"
+#     echo "Running test with $time_series time series" >> results1.txt
+for replica in "${replica_counts[@]}"; do
+    echo "Running test with $replica replicas and $time_series time series"
+    echo "Running test with $replica replicas and $time_series time series"  >> results1.txt
+    TIME_SERIES_COUNT=$time_series
+    REPLICA_COUNT=$replica
+    build_exporters
+    build_prometheus_yml
+    build_alert_rules_yml
+    run_prometheus
+    echo 'Press enter to stop the test...'
+    read
+    get_prometheus_load
+    get_prometheus_load >> results1.txt
+    stop_prometheus
+    stop_exporters
+    # done
 done
