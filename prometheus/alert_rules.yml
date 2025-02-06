@@ -1,0 +1,3503 @@
+groups:
+  - name: stress_test
+    rules:
+      - alert: high_metric_value_25_1
+        expr: avg(synthetic_metric_1) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_1
+        expr: avg(synthetic_metric1) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_1
+        expr: avg(synthetic_metric_1) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_1
+        expr: avg(synthetic_metric_1) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_2
+        expr: avg(synthetic_metric_2) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_2
+        expr: avg(synthetic_metric2) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_2
+        expr: avg(synthetic_metric_2) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_2
+        expr: avg(synthetic_metric_2) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_3
+        expr: avg(synthetic_metric_3) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_3
+        expr: avg(synthetic_metric3) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_3
+        expr: avg(synthetic_metric_3) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_3
+        expr: avg(synthetic_metric_3) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_4
+        expr: avg(synthetic_metric_4) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_4
+        expr: avg(synthetic_metric4) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_4
+        expr: avg(synthetic_metric_4) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_4
+        expr: avg(synthetic_metric_4) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_5
+        expr: avg(synthetic_metric_5) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_5
+        expr: avg(synthetic_metric5) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_5
+        expr: avg(synthetic_metric_5) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_5
+        expr: avg(synthetic_metric_5) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_6
+        expr: avg(synthetic_metric_6) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_6
+        expr: avg(synthetic_metric6) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_6
+        expr: avg(synthetic_metric_6) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_6
+        expr: avg(synthetic_metric_6) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_7
+        expr: avg(synthetic_metric_7) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_7
+        expr: avg(synthetic_metric7) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_7
+        expr: avg(synthetic_metric_7) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_7
+        expr: avg(synthetic_metric_7) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_8
+        expr: avg(synthetic_metric_8) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_8
+        expr: avg(synthetic_metric8) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_8
+        expr: avg(synthetic_metric_8) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_8
+        expr: avg(synthetic_metric_8) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_9
+        expr: avg(synthetic_metric_9) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_9
+        expr: avg(synthetic_metric9) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_9
+        expr: avg(synthetic_metric_9) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_9
+        expr: avg(synthetic_metric_9) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_10
+        expr: avg(synthetic_metric_10) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_10
+        expr: avg(synthetic_metric10) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_10
+        expr: avg(synthetic_metric_10) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_10
+        expr: avg(synthetic_metric_10) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_11
+        expr: avg(synthetic_metric_11) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_11
+        expr: avg(synthetic_metric11) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_11
+        expr: avg(synthetic_metric_11) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_11
+        expr: avg(synthetic_metric_11) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_12
+        expr: avg(synthetic_metric_12) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_12
+        expr: avg(synthetic_metric12) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_12
+        expr: avg(synthetic_metric_12) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_12
+        expr: avg(synthetic_metric_12) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_13
+        expr: avg(synthetic_metric_13) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_13
+        expr: avg(synthetic_metric13) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_13
+        expr: avg(synthetic_metric_13) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_13
+        expr: avg(synthetic_metric_13) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_14
+        expr: avg(synthetic_metric_14) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_14
+        expr: avg(synthetic_metric14) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_14
+        expr: avg(synthetic_metric_14) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_14
+        expr: avg(synthetic_metric_14) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_15
+        expr: avg(synthetic_metric_15) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_15
+        expr: avg(synthetic_metric15) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_15
+        expr: avg(synthetic_metric_15) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_15
+        expr: avg(synthetic_metric_15) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_16
+        expr: avg(synthetic_metric_16) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_16
+        expr: avg(synthetic_metric16) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_16
+        expr: avg(synthetic_metric_16) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_16
+        expr: avg(synthetic_metric_16) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_17
+        expr: avg(synthetic_metric_17) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_17
+        expr: avg(synthetic_metric17) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_17
+        expr: avg(synthetic_metric_17) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_17
+        expr: avg(synthetic_metric_17) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_18
+        expr: avg(synthetic_metric_18) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_18
+        expr: avg(synthetic_metric18) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_18
+        expr: avg(synthetic_metric_18) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_18
+        expr: avg(synthetic_metric_18) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_19
+        expr: avg(synthetic_metric_19) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_19
+        expr: avg(synthetic_metric19) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_19
+        expr: avg(synthetic_metric_19) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_19
+        expr: avg(synthetic_metric_19) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_20
+        expr: avg(synthetic_metric_20) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_20
+        expr: avg(synthetic_metric20) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_20
+        expr: avg(synthetic_metric_20) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_20
+        expr: avg(synthetic_metric_20) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_21
+        expr: avg(synthetic_metric_21) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_21
+        expr: avg(synthetic_metric21) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_21
+        expr: avg(synthetic_metric_21) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_21
+        expr: avg(synthetic_metric_21) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_22
+        expr: avg(synthetic_metric_22) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_22
+        expr: avg(synthetic_metric22) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_22
+        expr: avg(synthetic_metric_22) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_22
+        expr: avg(synthetic_metric_22) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_23
+        expr: avg(synthetic_metric_23) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_23
+        expr: avg(synthetic_metric23) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_23
+        expr: avg(synthetic_metric_23) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_23
+        expr: avg(synthetic_metric_23) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_24
+        expr: avg(synthetic_metric_24) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_24
+        expr: avg(synthetic_metric24) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_24
+        expr: avg(synthetic_metric_24) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_24
+        expr: avg(synthetic_metric_24) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_25
+        expr: avg(synthetic_metric_25) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_25
+        expr: avg(synthetic_metric25) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_25
+        expr: avg(synthetic_metric_25) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_25
+        expr: avg(synthetic_metric_25) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_26
+        expr: avg(synthetic_metric_26) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_26
+        expr: avg(synthetic_metric26) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_26
+        expr: avg(synthetic_metric_26) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_26
+        expr: avg(synthetic_metric_26) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_27
+        expr: avg(synthetic_metric_27) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_27
+        expr: avg(synthetic_metric27) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_27
+        expr: avg(synthetic_metric_27) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_27
+        expr: avg(synthetic_metric_27) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_28
+        expr: avg(synthetic_metric_28) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_28
+        expr: avg(synthetic_metric28) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_28
+        expr: avg(synthetic_metric_28) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_28
+        expr: avg(synthetic_metric_28) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_29
+        expr: avg(synthetic_metric_29) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_29
+        expr: avg(synthetic_metric29) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_29
+        expr: avg(synthetic_metric_29) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_29
+        expr: avg(synthetic_metric_29) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_30
+        expr: avg(synthetic_metric_30) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_30
+        expr: avg(synthetic_metric30) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_30
+        expr: avg(synthetic_metric_30) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_30
+        expr: avg(synthetic_metric_30) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_31
+        expr: avg(synthetic_metric_31) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_31
+        expr: avg(synthetic_metric31) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_31
+        expr: avg(synthetic_metric_31) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_31
+        expr: avg(synthetic_metric_31) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_32
+        expr: avg(synthetic_metric_32) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_32
+        expr: avg(synthetic_metric32) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_32
+        expr: avg(synthetic_metric_32) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_32
+        expr: avg(synthetic_metric_32) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_33
+        expr: avg(synthetic_metric_33) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_33
+        expr: avg(synthetic_metric33) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_33
+        expr: avg(synthetic_metric_33) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_33
+        expr: avg(synthetic_metric_33) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_34
+        expr: avg(synthetic_metric_34) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_34
+        expr: avg(synthetic_metric34) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_34
+        expr: avg(synthetic_metric_34) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_34
+        expr: avg(synthetic_metric_34) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_35
+        expr: avg(synthetic_metric_35) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_35
+        expr: avg(synthetic_metric35) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_35
+        expr: avg(synthetic_metric_35) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_35
+        expr: avg(synthetic_metric_35) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_36
+        expr: avg(synthetic_metric_36) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_36
+        expr: avg(synthetic_metric36) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_36
+        expr: avg(synthetic_metric_36) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_36
+        expr: avg(synthetic_metric_36) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_37
+        expr: avg(synthetic_metric_37) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_37
+        expr: avg(synthetic_metric37) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_37
+        expr: avg(synthetic_metric_37) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_37
+        expr: avg(synthetic_metric_37) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_38
+        expr: avg(synthetic_metric_38) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_38
+        expr: avg(synthetic_metric38) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_38
+        expr: avg(synthetic_metric_38) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_38
+        expr: avg(synthetic_metric_38) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_39
+        expr: avg(synthetic_metric_39) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_39
+        expr: avg(synthetic_metric39) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_39
+        expr: avg(synthetic_metric_39) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_39
+        expr: avg(synthetic_metric_39) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_40
+        expr: avg(synthetic_metric_40) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_40
+        expr: avg(synthetic_metric40) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_40
+        expr: avg(synthetic_metric_40) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_40
+        expr: avg(synthetic_metric_40) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_41
+        expr: avg(synthetic_metric_41) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_41
+        expr: avg(synthetic_metric41) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_41
+        expr: avg(synthetic_metric_41) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_41
+        expr: avg(synthetic_metric_41) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_42
+        expr: avg(synthetic_metric_42) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_42
+        expr: avg(synthetic_metric42) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_42
+        expr: avg(synthetic_metric_42) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_42
+        expr: avg(synthetic_metric_42) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_43
+        expr: avg(synthetic_metric_43) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_43
+        expr: avg(synthetic_metric43) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_43
+        expr: avg(synthetic_metric_43) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_43
+        expr: avg(synthetic_metric_43) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_44
+        expr: avg(synthetic_metric_44) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_44
+        expr: avg(synthetic_metric44) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_44
+        expr: avg(synthetic_metric_44) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_44
+        expr: avg(synthetic_metric_44) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_45
+        expr: avg(synthetic_metric_45) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_45
+        expr: avg(synthetic_metric45) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_45
+        expr: avg(synthetic_metric_45) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_45
+        expr: avg(synthetic_metric_45) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_46
+        expr: avg(synthetic_metric_46) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_46
+        expr: avg(synthetic_metric46) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_46
+        expr: avg(synthetic_metric_46) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_46
+        expr: avg(synthetic_metric_46) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_47
+        expr: avg(synthetic_metric_47) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_47
+        expr: avg(synthetic_metric47) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_47
+        expr: avg(synthetic_metric_47) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_47
+        expr: avg(synthetic_metric_47) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_48
+        expr: avg(synthetic_metric_48) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_48
+        expr: avg(synthetic_metric48) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_48
+        expr: avg(synthetic_metric_48) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_48
+        expr: avg(synthetic_metric_48) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_49
+        expr: avg(synthetic_metric_49) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_49
+        expr: avg(synthetic_metric49) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_49
+        expr: avg(synthetic_metric_49) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_49
+        expr: avg(synthetic_metric_49) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_50
+        expr: avg(synthetic_metric_50) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_50
+        expr: avg(synthetic_metric50) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_50
+        expr: avg(synthetic_metric_50) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_50
+        expr: avg(synthetic_metric_50) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_51
+        expr: avg(synthetic_metric_51) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_51
+        expr: avg(synthetic_metric51) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_51
+        expr: avg(synthetic_metric_51) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_51
+        expr: avg(synthetic_metric_51) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_52
+        expr: avg(synthetic_metric_52) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_52
+        expr: avg(synthetic_metric52) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_52
+        expr: avg(synthetic_metric_52) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_52
+        expr: avg(synthetic_metric_52) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_53
+        expr: avg(synthetic_metric_53) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_53
+        expr: avg(synthetic_metric53) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_53
+        expr: avg(synthetic_metric_53) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_53
+        expr: avg(synthetic_metric_53) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_54
+        expr: avg(synthetic_metric_54) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_54
+        expr: avg(synthetic_metric54) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_54
+        expr: avg(synthetic_metric_54) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_54
+        expr: avg(synthetic_metric_54) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_55
+        expr: avg(synthetic_metric_55) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_55
+        expr: avg(synthetic_metric55) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_55
+        expr: avg(synthetic_metric_55) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_55
+        expr: avg(synthetic_metric_55) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_56
+        expr: avg(synthetic_metric_56) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_56
+        expr: avg(synthetic_metric56) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_56
+        expr: avg(synthetic_metric_56) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_56
+        expr: avg(synthetic_metric_56) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_57
+        expr: avg(synthetic_metric_57) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_57
+        expr: avg(synthetic_metric57) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_57
+        expr: avg(synthetic_metric_57) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_57
+        expr: avg(synthetic_metric_57) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_58
+        expr: avg(synthetic_metric_58) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_58
+        expr: avg(synthetic_metric58) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_58
+        expr: avg(synthetic_metric_58) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_58
+        expr: avg(synthetic_metric_58) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_59
+        expr: avg(synthetic_metric_59) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_59
+        expr: avg(synthetic_metric59) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_59
+        expr: avg(synthetic_metric_59) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_59
+        expr: avg(synthetic_metric_59) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_60
+        expr: avg(synthetic_metric_60) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_60
+        expr: avg(synthetic_metric60) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_60
+        expr: avg(synthetic_metric_60) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_60
+        expr: avg(synthetic_metric_60) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_61
+        expr: avg(synthetic_metric_61) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_61
+        expr: avg(synthetic_metric61) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_61
+        expr: avg(synthetic_metric_61) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_61
+        expr: avg(synthetic_metric_61) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_62
+        expr: avg(synthetic_metric_62) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_62
+        expr: avg(synthetic_metric62) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_62
+        expr: avg(synthetic_metric_62) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_62
+        expr: avg(synthetic_metric_62) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_63
+        expr: avg(synthetic_metric_63) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_63
+        expr: avg(synthetic_metric63) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_63
+        expr: avg(synthetic_metric_63) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_63
+        expr: avg(synthetic_metric_63) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_64
+        expr: avg(synthetic_metric_64) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_64
+        expr: avg(synthetic_metric64) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_64
+        expr: avg(synthetic_metric_64) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_64
+        expr: avg(synthetic_metric_64) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_65
+        expr: avg(synthetic_metric_65) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_65
+        expr: avg(synthetic_metric65) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_65
+        expr: avg(synthetic_metric_65) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_65
+        expr: avg(synthetic_metric_65) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_66
+        expr: avg(synthetic_metric_66) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_66
+        expr: avg(synthetic_metric66) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_66
+        expr: avg(synthetic_metric_66) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_66
+        expr: avg(synthetic_metric_66) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_67
+        expr: avg(synthetic_metric_67) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_67
+        expr: avg(synthetic_metric67) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_67
+        expr: avg(synthetic_metric_67) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_67
+        expr: avg(synthetic_metric_67) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_68
+        expr: avg(synthetic_metric_68) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_68
+        expr: avg(synthetic_metric68) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_68
+        expr: avg(synthetic_metric_68) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_68
+        expr: avg(synthetic_metric_68) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_69
+        expr: avg(synthetic_metric_69) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_69
+        expr: avg(synthetic_metric69) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_69
+        expr: avg(synthetic_metric_69) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_69
+        expr: avg(synthetic_metric_69) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_70
+        expr: avg(synthetic_metric_70) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_70
+        expr: avg(synthetic_metric70) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_70
+        expr: avg(synthetic_metric_70) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_70
+        expr: avg(synthetic_metric_70) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_71
+        expr: avg(synthetic_metric_71) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_71
+        expr: avg(synthetic_metric71) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_71
+        expr: avg(synthetic_metric_71) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_71
+        expr: avg(synthetic_metric_71) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_72
+        expr: avg(synthetic_metric_72) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_72
+        expr: avg(synthetic_metric72) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_72
+        expr: avg(synthetic_metric_72) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_72
+        expr: avg(synthetic_metric_72) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_73
+        expr: avg(synthetic_metric_73) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_73
+        expr: avg(synthetic_metric73) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_73
+        expr: avg(synthetic_metric_73) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_73
+        expr: avg(synthetic_metric_73) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_74
+        expr: avg(synthetic_metric_74) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_74
+        expr: avg(synthetic_metric74) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_74
+        expr: avg(synthetic_metric_74) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_74
+        expr: avg(synthetic_metric_74) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_75
+        expr: avg(synthetic_metric_75) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_75
+        expr: avg(synthetic_metric75) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_75
+        expr: avg(synthetic_metric_75) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_75
+        expr: avg(synthetic_metric_75) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_76
+        expr: avg(synthetic_metric_76) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_76
+        expr: avg(synthetic_metric76) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_76
+        expr: avg(synthetic_metric_76) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_76
+        expr: avg(synthetic_metric_76) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_77
+        expr: avg(synthetic_metric_77) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_77
+        expr: avg(synthetic_metric77) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_77
+        expr: avg(synthetic_metric_77) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_77
+        expr: avg(synthetic_metric_77) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_78
+        expr: avg(synthetic_metric_78) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_78
+        expr: avg(synthetic_metric78) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_78
+        expr: avg(synthetic_metric_78) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_78
+        expr: avg(synthetic_metric_78) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_79
+        expr: avg(synthetic_metric_79) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_79
+        expr: avg(synthetic_metric79) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_79
+        expr: avg(synthetic_metric_79) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_79
+        expr: avg(synthetic_metric_79) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_80
+        expr: avg(synthetic_metric_80) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_80
+        expr: avg(synthetic_metric80) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_80
+        expr: avg(synthetic_metric_80) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_80
+        expr: avg(synthetic_metric_80) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_81
+        expr: avg(synthetic_metric_81) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_81
+        expr: avg(synthetic_metric81) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_81
+        expr: avg(synthetic_metric_81) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_81
+        expr: avg(synthetic_metric_81) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_82
+        expr: avg(synthetic_metric_82) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_82
+        expr: avg(synthetic_metric82) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_82
+        expr: avg(synthetic_metric_82) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_82
+        expr: avg(synthetic_metric_82) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_83
+        expr: avg(synthetic_metric_83) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_83
+        expr: avg(synthetic_metric83) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_83
+        expr: avg(synthetic_metric_83) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_83
+        expr: avg(synthetic_metric_83) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_84
+        expr: avg(synthetic_metric_84) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_84
+        expr: avg(synthetic_metric84) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_84
+        expr: avg(synthetic_metric_84) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_84
+        expr: avg(synthetic_metric_84) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_85
+        expr: avg(synthetic_metric_85) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_85
+        expr: avg(synthetic_metric85) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_85
+        expr: avg(synthetic_metric_85) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_85
+        expr: avg(synthetic_metric_85) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_86
+        expr: avg(synthetic_metric_86) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_86
+        expr: avg(synthetic_metric86) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_86
+        expr: avg(synthetic_metric_86) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_86
+        expr: avg(synthetic_metric_86) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_87
+        expr: avg(synthetic_metric_87) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_87
+        expr: avg(synthetic_metric87) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_87
+        expr: avg(synthetic_metric_87) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_87
+        expr: avg(synthetic_metric_87) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_88
+        expr: avg(synthetic_metric_88) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_88
+        expr: avg(synthetic_metric88) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_88
+        expr: avg(synthetic_metric_88) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_88
+        expr: avg(synthetic_metric_88) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_89
+        expr: avg(synthetic_metric_89) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_89
+        expr: avg(synthetic_metric89) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_89
+        expr: avg(synthetic_metric_89) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_89
+        expr: avg(synthetic_metric_89) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_90
+        expr: avg(synthetic_metric_90) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_90
+        expr: avg(synthetic_metric90) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_90
+        expr: avg(synthetic_metric_90) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_90
+        expr: avg(synthetic_metric_90) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_91
+        expr: avg(synthetic_metric_91) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_91
+        expr: avg(synthetic_metric91) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_91
+        expr: avg(synthetic_metric_91) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_91
+        expr: avg(synthetic_metric_91) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_92
+        expr: avg(synthetic_metric_92) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_92
+        expr: avg(synthetic_metric92) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_92
+        expr: avg(synthetic_metric_92) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_92
+        expr: avg(synthetic_metric_92) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_93
+        expr: avg(synthetic_metric_93) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_93
+        expr: avg(synthetic_metric93) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_93
+        expr: avg(synthetic_metric_93) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_93
+        expr: avg(synthetic_metric_93) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_94
+        expr: avg(synthetic_metric_94) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_94
+        expr: avg(synthetic_metric94) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_94
+        expr: avg(synthetic_metric_94) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_94
+        expr: avg(synthetic_metric_94) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_95
+        expr: avg(synthetic_metric_95) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_95
+        expr: avg(synthetic_metric95) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_95
+        expr: avg(synthetic_metric_95) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_95
+        expr: avg(synthetic_metric_95) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_96
+        expr: avg(synthetic_metric_96) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_96
+        expr: avg(synthetic_metric96) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_96
+        expr: avg(synthetic_metric_96) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_96
+        expr: avg(synthetic_metric_96) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_97
+        expr: avg(synthetic_metric_97) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_97
+        expr: avg(synthetic_metric97) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_97
+        expr: avg(synthetic_metric_97) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_97
+        expr: avg(synthetic_metric_97) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_98
+        expr: avg(synthetic_metric_98) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_98
+        expr: avg(synthetic_metric98) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_98
+        expr: avg(synthetic_metric_98) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_98
+        expr: avg(synthetic_metric_98) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_99
+        expr: avg(synthetic_metric_99) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_99
+        expr: avg(synthetic_metric99) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_99
+        expr: avg(synthetic_metric_99) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_99
+        expr: avg(synthetic_metric_99) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+      - alert: high_metric_value_25_100
+        expr: avg(synthetic_metric_100) > 25
+        for: 5s
+        labels:
+          severity: info
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_50_100
+        expr: avg(synthetic_metric100) > 50
+        for: 5s
+        labels:
+          severity: warning
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_75_100
+        expr: avg(synthetic_metric_100) > 75
+        for: 5s
+        labels:
+          severity: high 
+        annotations:
+          summary: High request rate
+          description: High request rate detected
+
+      - alert: high_metric_value_100_100
+        expr: avg(synthetic_metric_100) > 100
+        for: 5s
+        labels:
+          severity: critical
+        annotations:
+          summary: High request rate
+          description: High request rate detected
