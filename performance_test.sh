@@ -1,4 +1,5 @@
 #!/bin/bash
+LOG_FILE=results2.txt
 REPLICA_COUNT=100
 
 IMAGE=synthetic-exporter
@@ -10,7 +11,7 @@ EXPORTER_PORT=8000
 METRICS_BASE_NAME=synthetic_metric
 METRIC_COUNT=1000
 LABEL_COUNT=2
-LABEL_VALUES_COUNT=20
+LABEL_VALUES_COUNT=10
 REFRESH_INTERVAL=10
 
 build_exporters(){
@@ -137,30 +138,25 @@ stop_exporters(){
     done
 }
 
-
-# replica_counts=(100 1000)
-replica_counts=(10)
-# time_series_count=(1000 10000 100000)
-time_series_count=(1000)
+replica_counts=(1 5 10 50 100 1000)
+# replica_counts=(10)
+# # time_series_count=(1000 10000 100000)
+# time_series_count=(1000)
 setup_docker
 
-# for time_series in "${time_series_count[@]}"; do
-#     echo "Running test with $time_series time series"
-#     echo "Running test with $time_series time series" >> results1.txt
 for replica in "${replica_counts[@]}"; do
-    echo "Running test with $replica replicas and $time_series time series"
-    echo "Running test with $replica replicas and $time_series time series"  >> results1.txt
-    TIME_SERIES_COUNT=$time_series
     REPLICA_COUNT=$replica
-    build_exporters
+    echo "Running test with $replica replicas"
+    echo "Running test with $replica replicas" >> $LOG_FILE
     build_prometheus_yml
     build_alert_rules_yml
     run_prometheus
-    echo 'Press enter to stop the test...'
-    read
+    build_exporters
+    # echo 'Press enter to stop the test...'
+    # read
+    sleep 300
     get_prometheus_load
-    get_prometheus_load >> results1.txt
+    get_prometheus_load >> $LOG_FILE
     stop_prometheus
     stop_exporters
-    # done
 done
