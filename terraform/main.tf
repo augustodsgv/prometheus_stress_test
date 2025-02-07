@@ -57,26 +57,27 @@ resource "mgc_network_security_groups_rules" "allow_prometheus" {
 }
 
 # VMs
-resource "mgc_virtual_machine_instances" "node_a" {
+resource "mgc_virtual_machine_instances" "node" {
   provider = mgc.nordeste
-  # count = var.cluster_size
-  # name  = "clickhouse-spec-test-${count.index}"
-  name         = "node_a"
+  count = var.cluster_size
+  name         = "node-${count.index}"
   machine_type = var.swarm_machine_type
   image        = var.machine_image
   ssh_key_name = mgc_ssh_keys.swarm.name
 }
 
-resource "mgc_network_public_ips" "node_a" {
+resource "mgc_network_public_ips" "node" {
+  count = var.cluster_size
   provider = mgc.nordeste
-  description = "Docker swarm node a"
+  description = "Docker swarm node ${count.index}"
   vpc_id      = var.vpc_id
 }
 
-resource "mgc_network_public_ips_attach" "node_a" {
+resource "mgc_network_public_ips_attach" "node" {
   provider = mgc.nordeste
-  public_ip_id = mgc_network_public_ips.node_a.id
-  interface_id = mgc_virtual_machine_instances.node_a.network_interfaces[0].id
+  count = var.cluster_size
+  public_ip_id = mgc_network_public_ips.node[count.index].id
+  interface_id = mgc_virtual_machine_instances.node[count.index].network_interfaces[0].id
 }
 
 

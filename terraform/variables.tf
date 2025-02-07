@@ -33,3 +33,9 @@ variable "vpc_id" {
   default     = ""
   description = "tenant vpc id"
 }
+
+variable "cluster_size" {
+  type        = number
+  default     = 3
+  description = "number of nodes in the cluster"
+}
