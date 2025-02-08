@@ -34,8 +34,8 @@ deploy_exporter(){
     NAME=$1
     PORT=$2
     INDEX=$3
+    echo "Deploying exporter $1..."
     docker service create \
-        -d \
         --name=$NAME \
         -e PORT=8000 \
         -e METRICS_BASE_NAME="synthetic_metric" \
@@ -46,7 +46,8 @@ deploy_exporter(){
         -e SE_LABEL_FOO="foo" \
         -e SE_LABEL_INDEX=$INDEX \
         --publish published=$PORT,target=8000 \
-        $IMAGE &
+        $IMAGE
+        # -d \
 }
 
 deploy_many_exporters

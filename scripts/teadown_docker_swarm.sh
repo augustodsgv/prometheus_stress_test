@@ -14,7 +14,7 @@ delete_exporters(){
     for ((i=0; i<REPLICA_COUNT;i++)); do
         exporter_name=${EXPORTER_BASE_NAME}_$i
         docker service rm $exporter_name &
-        echo $exporter_name
+        echo Deleting $exporter_name...
     done
 }
 

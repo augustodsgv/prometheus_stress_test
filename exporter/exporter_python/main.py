@@ -119,10 +119,10 @@ def gen_labels(
     Generates a list of all possible labels combinations
     label1=value1, label2=value2, label3=value3, ...
     """
+    label_dicts = []
     label_names = gen_label_names(labels_count, labels_base_name)
     values = gen_label_values(label_values_count, label_values_base_name)
     label_combinations = itertools.product(values, repeat=labels_count)         # Generates a list of label combinations. For example, if list has [A, B, C], generates [A, B], [A, C], [B, C] 
-    label_dicts = []
     for combination in label_combinations:
         label_dict = dict(zip(label_names, combination))
         label_dicts.append(label_dict)
