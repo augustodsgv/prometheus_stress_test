@@ -1,0 +1,33 @@
+all:
+  vars:
+    ansible_user: ubuntu
+    ansible_ssh_private_key_file: /home/augusto/.ssh/ed25519
+  children:
+    managers:
+      hosts:
+        manager_0:
+          ansible_host: x.x.x.x
+          private_ip: 172.18.1.128
+        manager_1:
+          ansible_host: x.x.x.x
+          private_ip: 172.18.3.13
+    workers:
+      hosts:
+        worker_0:
+          ansible_host: x.x.x.x
+          private_ip: 172.18.0.8
+        worker_1:
+          ansible_host: x.x.x.x
+          private_ip: 172.18.0.255
+        worker_2:
+          ansible_host: x.x.x.x
+          private_ip: 172.18.1.240
+        worker_3:
+          ansible_host: x.x.x.x
+          private_ip: 172.18.0.75
+        worker_4:
+          ansible_host: x.x.x.x
+          private_ip: 172.18.3.156
+        worker_5:
+          ansible_host: x.x.x.x
+          private_ip: 172.18.0.110

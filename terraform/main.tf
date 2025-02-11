@@ -8,32 +8,97 @@ terraform {
 }
 
 # SSH key
-resource "mgc_ssh_keys" "swarm" {
+resource "mgc_ssh_keys" "prometheus_stress_test_key" {
   provider = mgc.sudeste
   key  = file(var.ssh_key_path)
-  name = "swarm"
+  name = "prometheus_stress_test_key"
 }
 
-# VMs
-resource "mgc_virtual_machine_instances" "swarm_nodes" {
+# Worker nodes
+resource "mgc_virtual_machine_instances" "prometheus_stress_test_worker" {
   provider = mgc.sudeste
-  count = var.cluster_size
-  name         = "swarm_nodes_${count.index}"
+  count = var.worker_count
+  name         = "prometheus_stress_test_worker_${count.index}"
   machine_type = var.swarm_machine_type
   image        = var.machine_image
-  ssh_key_name = mgc_ssh_keys.swarm.name
+  ssh_key_name = mgc_ssh_keys.prometheus_stress_test_key.name
 }
 
-resource "mgc_network_public_ips" "swarm_nodes" {
-  count = var.cluster_size
+resource "mgc_network_public_ips" "prometheus_stress_test_worker" {
+  count = var.worker_count
   provider = mgc.sudeste
-  description = "Docker swarm swarm_nodes ${count.index}"
+  description = "Docker swarm prometheus_stress_test_worker ${count.index}"
   vpc_id      = var.vpc_id
 }
 
-resource "mgc_network_public_ips_attach" "swarm_nodes" {
+resource "mgc_network_public_ips_attach" "prometheus_stress_test_worker" {
   provider = mgc.sudeste
-  count = var.cluster_size
-  public_ip_id = mgc_network_public_ips.swarm_nodes[count.index].id
-  interface_id = mgc_virtual_machine_instances.swarm_nodes[count.index].network_interfaces[0].id
+  count = var.worker_count
+  public_ip_id = mgc_network_public_ips.prometheus_stress_test_worker[count.index].id
+  interface_id = mgc_virtual_machine_instances.prometheus_stress_test_worker[count.index].network_interfaces[0].id
+}
+
+resource "mgc_network_security_groups_attach" "prometheus_stress_test_worker" {
+  provider = mgc.sudeste
+  count = var.worker_count
+  security_group_id = mgc_network_security_groups.prometheus_stress_test_swarm.id
+  interface_id = mgc_virtual_machine_instances.prometheus_stress_test_worker[count.index].network_interfaces[0].id
+}
+
+# Manager nodes
+resource "mgc_virtual_machine_instances" "prometheus_stress_test_manager" {
+  provider = mgc.sudeste
+  count = var.manager_count
+  name         = "prometheus_stress_test_manager_${count.index}"
+  machine_type = var.swarm_machine_type
+  image        = var.machine_image
+  ssh_key_name = mgc_ssh_keys.prometheus_stress_test_key.name
+}
+
+resource "mgc_network_public_ips" "prometheus_stress_test_manager" {
+  count = var.manager_count
+  provider = mgc.sudeste
+  description = "Docker swarm prometheus_stress_test_manager ${count.index}"
+  vpc_id      = var.vpc_id
+}
+
+resource "mgc_network_public_ips_attach" "prometheus_stress_test_manager" {
+  provider = mgc.sudeste
+  count = var.manager_count
+  public_ip_id = mgc_network_public_ips.prometheus_stress_test_manager[count.index].id
+  interface_id = mgc_virtual_machine_instances.prometheus_stress_test_manager[count.index].network_interfaces[0].id
+}
+
+resource "mgc_network_security_groups_attach" "prometheus_stress_test_manager" {
+  provider = mgc.sudeste
+  count = var.manager_count
+  security_group_id = mgc_network_security_groups.prometheus_stress_test_swarm.id
+  interface_id = mgc_virtual_machine_instances.prometheus_stress_test_manager[count.index].network_interfaces[0].id
+}
+
+# Prometheus
+resource "mgc_virtual_machine_instances" "prometheus_node" {
+  provider = mgc.sudeste
+  name         = "prometheus_node"
+  machine_type = var.prometheus_node_machine_type
+  image        = var.machine_image
+  ssh_key_name = mgc_ssh_keys.prometheus_stress_test_key.name
+}
+
+resource "mgc_network_public_ips" "prometheus_node" {
+  provider = mgc.sudeste
+  description = "Prometheus node"
+  vpc_id      = var.vpc_id
+}
+
+resource "mgc_network_public_ips_attach" "prometheus_node" {
+  provider = mgc.sudeste
+  public_ip_id = mgc_network_public_ips.prometheus_node.id
+  interface_id = mgc_virtual_machine_instances.prometheus_node.network_interfaces[0].id
+}
+
+resource "mgc_network_security_groups_attach" "prometheus_node" {
+  provider = mgc.sudeste
+  security_group_id = mgc_network_security_groups.prometheus_node.id
+  interface_id = mgc_virtual_machine_instances.prometheus_node.network_interfaces[0].id
 }

@@ -24,8 +24,14 @@ variable "machine_image" {
 
 variable "swarm_machine_type" {
   type        = string
-  default     = "BV4-8-100"
+  default     = "BV4-16-40"
   description = "swarm node flavor"
+}
+
+variable "prometheus_node_machine_type" {
+  type        = string
+  default     = "BV8-32-100"
+  description = "prometheus node flavor"
 }
 
 variable "vpc_id" {
@@ -34,8 +40,14 @@ variable "vpc_id" {
   description = "tenant vpc id"
 }
 
-variable "cluster_size" {
+variable "worker_count" {
   type        = number
-  default     = 3
-  description = "number of nodes in the cluster"
+  default     = 6
+  description = "number of woker nodes in the cluster"
+}
+
+variable "manager_count" {
+  type        = number
+  default     = 2 
+  description = "number of leader in the cluster"
 }
