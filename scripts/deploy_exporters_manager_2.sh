@@ -11,7 +11,7 @@ if [ -z "$REPLICA_COUNT" ]; then
     echo "Usage: $0 <replica_count>"
     exit 1
 fi
-IMAGE=augustodsgv/synthetic-exporter
+IMAGE=ghcr.io/augustodsgv/synthetic-exporter
 METRIC_COUNT=1000
 LABEL_COUNT=2
 LABEL_VALUES_COUNT=10
