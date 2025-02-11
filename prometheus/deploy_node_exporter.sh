@@ -1,0 +1,1 @@
+docker run -p 9100:9100 --name node-exporter -d --net="host" prom/node-exporter

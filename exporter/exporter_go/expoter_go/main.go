@@ -94,7 +94,7 @@ func main() {
 	fmt.Println("LABEL_COUNT:", labelCount)
 	fmt.Println("LABEL_VALUES_COUNT:", labelValuesCount)
 
-	// Pre calculate the labels, which are the most costly operation
+	// Pre-calculate the labels, which are the most costly operation
 	labels := genLabels(labelCount, labelValuesCount, labelsBaseName, "value",customLabels)
 	payload = genMultipleMetrics(metricsBaseName, metricCount, labels)
 	// Start the metrics generation on a second thread
