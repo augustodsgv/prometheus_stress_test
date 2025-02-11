@@ -1,6 +1,6 @@
 docker run -it \
     --name=prometheus_watcher \
-    --net=host \
+    -d \
     -p 9090:9090 \
-    -v ./prometheus.yml:/prometheus/prometheus.yml \
-    prom/prometheus 
+    -v ./prometheus.yml:/etc/prometheus/prometheus.yml \
+    quay.io/prometheus/prometheus 

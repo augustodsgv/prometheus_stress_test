@@ -1,17 +1,13 @@
 #!/bin/bash
-LOG_FILE=results2.txt
-REPLICA_COUNT=$1
-EXPORTER_ADDR=$2
 
-DOCKER_NETWORK=stress_test
+# Array of exporter addresses
+EXPORTER_ADDRS=("172.18.3.38" "172.18.1.249" "172.18.0.216" "172.18.1.169" "172.18.3.127" "172.18.1.7" "172.18.3.47" "172.18.2.51")
+EXPORTER_BASE_PORT=8000
 
-EXPORTER_PORT=8000
-METRICS_BASE_NAME=synthetic_metric
-
-build_prometheus_yml(){
+build_prometheus_yml() {
   echo "Generating prometheus.yml file"
 
-    cat <<EOF > prometheus.yml
+  cat <<EOF > prometheus.yml
 global:
   scrape_interval: 1m
 rule_files:
@@ -22,97 +18,31 @@ scrape_configs:
     scrape_timeout: 20s
     static_configs:
 EOF
-#   - "recording_rules.yml"
 
-    for i in $(seq 1 $REPLICA_COUNT); do
-        echo "      - targets: ['$EXPORTER_ADDR:$(($EXPORTER_PORT + $i))']" >> prometheus.yml
-    done
+  # Distribute targets among EXPORTER_ADDRS
+  for i in $(seq 1 $1); do
+    addr_index=$((($i - 1) % ${#EXPORTER_ADDRS[@]}))
+    echo "      - targets: ['${EXPORTER_ADDRS[$addr_index]}:$(($EXPORTER_BASE_PORT + $i))']" >> prometheus.yml
+  done
 }
 
-build_alert_rules_yml(){
-  echo "Generating alert_rules.yml file"
-
-    cat <<EOF > alert_rules.yml
-groups:
-  - name: stress_test
-    rules:
-EOF
-
-    for i in $(seq 1 $REPLICA_COUNT); do
-        cat <<EOF >> alert_rules.yml
-      - alert: high_metric_value_25_$i
-        expr: avg(${METRICS_BASE_NAME}_$i) > 25
-        for: 5s
-        labels:
-          severity: info
-        annotations:
-          summary: High request rate
-          description: High request rate detected
-
-      - alert: high_metric_value_50_$i
-        expr: avg(${METRICS_BASE_NAME}$i) > 50
-        for: 5s
-        labels:
-          severity: warning
-        annotations:
-          summary: High request rate
-          description: High request rate detected
-
-      - alert: high_metric_value_75_$i
-        expr: avg(${METRICS_BASE_NAME}_$i) > 75
-        for: 5s
-        labels:
-          severity: high 
-        annotations:
-          summary: High request rate
-          description: High request rate detected
-
-      - alert: high_metric_value_100_$i
-        expr: avg(${METRICS_BASE_NAME}_$i) > 100
-        for: 5s
-        labels:
-          severity: critical
-        annotations:
-          summary: High request rate
-          description: High request rate detected
-EOF
-    done
+run_prometheus() {
+  docker run -d \
+    --name=prometheus_stress_test \
+    -p 9090:9090 \
+    -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
+    quay.io/prometheus/prometheus
 }
 
-setup_docker(){
-    docker network create $DOCKER_NETWORK
-}
-
-run_prometheus(){
-    docker run -d \
-        --name=prometheus_stress_test \
-        --network=$DOCKER_NETWORK \
-        -p 9090:9090 \
-        -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
-        -v $(pwd)/alert_rules.yml:/etc/prometheus/alert_rules.yml \
-        prom/prometheus
-}
-
-get_prometheus_load(){
-    docker stats prometheus_stress_test --no-stream --format "table {{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}"
-}
-
-stop_prometheus(){
-    echo "Stoping prometheus container"
-    docker stop prometheus_stress_test
-    docker rm prometheus_stress_test
-}
-
-replica_counts=(1 5 10 50 100 1000)
-setup_docker
+replica_counts=(1 5 10 50 100 500 1000)
 run_prometheus
 build_alert_rules_yml
 
 for replica in "${replica_counts[@]}"; do
-    REPLICA_COUNT=$replica
-    echo "Running test with $replica replicas"
-    echo "Running test with $replica replicas" >> $LOG_FILE
-    build_prometheus_yml
-    echo "Press any key to jump to next load..."
-    read
+  echo "Running test with $replica replicas"
+  build_prometheus_yml $replica
+  echo "Press any key to jump to next load..."
+  read
+  # sleep 1800
+  docker restart prometheus_stress_test
 done
