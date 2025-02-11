@@ -34,9 +34,8 @@ run_prometheus() {
     quay.io/prometheus/prometheus
 }
 
-replica_counts=(1 5 10 50 100 500 1000)
+replica_counts=(1 50 100 500 1000 1500 2000 3000)
 run_prometheus
-build_alert_rules_yml
 
 for replica in "${replica_counts[@]}"; do
   echo "Running test with $replica replicas"
