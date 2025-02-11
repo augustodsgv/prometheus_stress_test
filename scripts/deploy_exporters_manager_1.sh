@@ -27,6 +27,7 @@ deploy_many_exporters(){
         exporter_name=${EXPORTER_BASE_NAME}_$i
         exporter_port=$((EXPORTER_BASE_PORT + i))
         deploy_exporter $exporter_name $exporter_port $i
+        sleep 1
     done
 }
 
@@ -46,8 +47,8 @@ deploy_exporter(){
         -e SE_LABEL_FOO="foo" \
         -e SE_LABEL_INDEX=$INDEX \
         --publish published=$PORT,target=8000 \
+        -d \
         $IMAGE
-        # -d \
 }
 
 deploy_many_exporters
