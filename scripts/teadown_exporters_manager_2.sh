@@ -11,10 +11,9 @@ fi
 EXPORTER_BASE_NAME=synthetic-exporter
 
 delete_exporters(){
-    for ((i=REPLICA_COUNT; i<REPLICA_COUNT*2;i++)); do
+    for ((i=REPLICA_COUNT*2; i<REPLICA_COUNT*3+1;i++)); do
         exporter_name=${EXPORTER_BASE_NAME}_$i
-        docker service rm $exporter_name &
-        echo Deleting $exporter_name...
+        docker service rm $exporter_name
     done
 }
 
