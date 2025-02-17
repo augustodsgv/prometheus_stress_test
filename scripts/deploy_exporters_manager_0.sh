@@ -6,13 +6,14 @@
 # 
 
 # Global variables
-REPLICA_COUNT=$1        # Get from envvar
-if [ -z "$REPLICA_COUNT" ]; then
-    echo "Usage: $0 <replica_count>"
-    exit 1
-fi
+REPLICA_COUNT=1000
+# REPLICA_COUNT=$1        # Get from envvar
+# if [ -z "$REPLICA_COUNT" ]; then
+#     echo "Usage: $0 <replica_count>"
+#     exit 1
+# fi
 IMAGE=ghcr.io/augustodsgv/synthetic-exporter
-METRIC_COUNT=500
+METRIC_COUNT=1000
 LABEL_COUNT=2
 LABEL_VALUES_COUNT=2
 REFRESH_INTERVAL=60

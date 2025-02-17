@@ -24,7 +24,7 @@ EXPORTER_BASE_PORT=8000
 
 
 deploy_many_exporters(){
-    for ((i=REPLICA_COUNT; i<REPLICA_COUNT*2; i++)); do
+    for ((i=REPLICA_COUNT*3; i<REPLICA_COUNT*4 + 1;i++)); do
         exporter_name=${EXPORTER_BASE_NAME}_$i
         exporter_port=$((EXPORTER_BASE_PORT + i))
         deploy_exporter $exporter_name $exporter_port $i

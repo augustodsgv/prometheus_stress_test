@@ -6,12 +6,17 @@
 # 
 
 # Global variables
-REPLICA_COUNT=1000
-# REPLICA_COUNT=$1        # Get from envvar
-# if [ -z "$REPLICA_COUNT" ]; then
-#     echo "Usage: $0 <replica_count>"
-#     exit 1
-# fi
+FIRST_REPLICA=$1        # Get from envvar
+LAST_REPLICA=$2        # Get from envvar
+if [ -z "$FIRST_REPLICA" ]; then
+    echo "Usage: $0 <first_replica> <last_replica>"
+    exit 1
+fi
+
+if [ -z "$LAST_REPLICA" ]; then
+    echo "Usage: $0 <first_replica> <last_replica>"
+    exit 1
+fi
 IMAGE=ghcr.io/augustodsgv/synthetic-exporter
 METRIC_COUNT=1000
 LABEL_COUNT=2
@@ -24,7 +29,7 @@ EXPORTER_BASE_PORT=8000
 
 
 deploy_many_exporters(){
-    for ((i=REPLICA_COUNT; i<REPLICA_COUNT*2; i++)); do
+    for ((i=FIRST_REPLICA; i<LAST_REPLICA; i++)); do
         exporter_name=${EXPORTER_BASE_NAME}_$i
         exporter_port=$((EXPORTER_BASE_PORT + i))
         deploy_exporter $exporter_name $exporter_port $i
