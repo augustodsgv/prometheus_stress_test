@@ -6,7 +6,7 @@
 # 
 
 # Global variables
-REPLICA_COUNT=1000
+REPLICA_COUNT=2000
 # REPLICA_COUNT=$1        # Get from envvar
 # if [ -z "$REPLICA_COUNT" ]; then
 #     echo "Usage: $0 <replica_count>"
