@@ -1,26 +1,26 @@
-output "prometheus_stress_test_managers_ips" {
+output "stress_test_tcc_guto_managers_ips" {
   value = {
-    for idx, vm in mgc_virtual_machine_instances.prometheus_stress_test_manager :
+    for idx, vm in mgc_virtual_machine_instances.stress_test_tcc_guto_manager :
     "manager-${idx}" => {
-      public_ip  = mgc_network_public_ips.prometheus_stress_test_manager[idx].public_ip,
+      public_ip  = mgc_network_public_ips.stress_test_tcc_guto_manager[idx].public_ip,
       private_ip = vm.network_interfaces[0].local_ipv4
     }
   }
 }
 
-output "prometheus_stress_test_workers_ips" {
+output "stress_test_tcc_guto_workers_ips" {
   value = {
-    for idx, vm in mgc_virtual_machine_instances.prometheus_stress_test_worker :
+    for idx, vm in mgc_virtual_machine_instances.stress_test_tcc_guto_worker :
     "worker-${idx}" => {
-      public_ip  = mgc_network_public_ips.prometheus_stress_test_worker[idx].public_ip,
+      public_ip  = mgc_network_public_ips.stress_test_tcc_guto_worker[idx].public_ip,
       private_ip = vm.network_interfaces[0].local_ipv4
     }
   }
 }
 
-output "prometheus_node_ips" {
-  value = {
-    public_ip  = mgc_network_public_ips.prometheus_node,
-    private_ip = mgc_virtual_machine_instances.prometheus_node.network_interfaces[0].local_ipv4
-  }
-}
+# output "prometheus_node_tcc_guto_ips" {
+#   value = {
+#     public_ip  = mgc_network_public_ips.prometheus_node_tcc_guto,
+#     private_ip = mgc_virtual_machine_instances.prometheus_node_tcc_guto.network_interfaces[0].local_ipv4
+#   }
+# }
