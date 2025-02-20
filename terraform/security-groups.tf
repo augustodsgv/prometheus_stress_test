@@ -20,7 +20,7 @@ resource "mgc_network_security_groups_rules" "allow_exporters" {
   for_each          = { "IPv4" : "0.0.0.0/0", "IPv6" : "::/0" }
   direction         = "ingress"
   ethertype         = each.key
-  port_range_max    = 20000
+  port_range_max    = 8000
   port_range_min    = 8000
   protocol          = "tcp"
   remote_ip_prefix  = each.value

@@ -21,22 +21,11 @@ REGISTRY_HOST=127.0.0.1
 REGISTRY_PORT=5000
 EXPORTER_BASE_NAME=synthetic-exporter
 EXPORTER_BASE_PORT=8000
-
-
-deploy_many_exporters(){
-    for ((i=REPLICA_COUNT*2; i<REPLICA_COUNT*3 + 1;i++)); do
-        exporter_name=${EXPORTER_BASE_NAME}_$i
-        exporter_port=$((EXPORTER_BASE_PORT + i))
-        deploy_exporter $exporter_name $exporter_port $i
-        sleep 1
-    done
-}
+NAME=dummy_test
+PORT=8000
+INDEX=0
 
 deploy_exporter(){
-    NAME=$1
-    PORT=$2
-    INDEX=$3
-    echo "Deploying exporter $1..."
     docker service create \
         --name=$NAME \
         -e PORT=8000 \
@@ -52,4 +41,4 @@ deploy_exporter(){
         $IMAGE
 }
 
-deploy_many_exporters
+deploy_exporter
