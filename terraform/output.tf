@@ -17,10 +17,3 @@ output "prometheus_stress_test_workers_ips" {
     }
   }
 }
-
-output "prometheus_node_ips" {
-  value = {
-    public_ip  = mgc_network_public_ips.prometheus_node,
-    private_ip = mgc_virtual_machine_instances.prometheus_node.network_interfaces[0].local_ipv4
-  }
-}

@@ -1,18 +1,16 @@
 variable "api_key" {
   type        = string
-  default     = ""
   description = "mgc api key"
 }
 
-variable "ssh_key" {
+variable "vpc_id" {
   type        = string
-  default     = ""
-  description = "public key to insert to machines"
+  description = "tenant vpc id"
 }
 
 variable "ssh_key_path" {
   type        = string
-  default     = ""
+  default     = "~/.ssh/mgc.pub"
   description = "path of public key in this computers"
 }
 
@@ -24,30 +22,18 @@ variable "machine_image" {
 
 variable "swarm_machine_type" {
   type        = string
-  default     = "BV4-16-40"
+  default     = "BV2-4-10"
   description = "swarm node flavor"
-}
-
-variable "prometheus_node_machine_type" {
-  type        = string
-  default     = "BV8-32-100"
-  description = "prometheus node flavor"
-}
-
-variable "vpc_id" {
-  type        = string
-  default     = ""
-  description = "tenant vpc id"
 }
 
 variable "worker_count" {
   type        = number
-  default     = 6
+  default     = 0
   description = "number of woker nodes in the cluster"
 }
 
 variable "manager_count" {
   type        = number
-  default     = 2 
+  default     = 3 
   description = "number of leader in the cluster"
 }
