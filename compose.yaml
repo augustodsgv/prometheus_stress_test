@@ -8,8 +8,6 @@ services:
       LABEL_COUNT: 2
       LABEL_VALUES_COUNT: 2
       REFRESH_INTERVAL: 60
-      SE_LABEL_FOO: foo
-      SE_LABEL_INDEX: 1
     ports:
       - "8000:8000"
     deploy:
